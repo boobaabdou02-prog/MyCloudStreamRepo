@@ -1,0 +1,8 @@
+{
+  "name": "FrenchStream Custom Repo",
+  "description": "Custom CloudStream repository for French-Stream.one",
+  "manifestVersion": 1,
+  "pluginLists": [
+    "https://raw.githubusercontent.com/USER/FrenchStreamRepo/builds/plugins.json"
+  ]
+}
