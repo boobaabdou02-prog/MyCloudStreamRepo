@@ -1,0 +1,25 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+      - name: Build Plugins
+        run: |
+          chmod +x gradlew
+          ./gradlew make
+      - name: Deploy to builds branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: builds
+          folder: builds
